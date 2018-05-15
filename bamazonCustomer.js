@@ -5,7 +5,7 @@ var connection = mysql.createConnection({
   host: "127.0.0.1",
   port: 3306,
   user: "root",
-  password: "Dowork118",
+  password: "bootcamp05",
   database: "bamazon_db"
 });
 
@@ -22,7 +22,7 @@ function itemSelection() {
       for (var i = 0; i < res.length; i++) {
         console.log(
           "ID: " +
-          res[i].item_id +
+          res[i].id +
           " || Item: " +
           res[i].product_name +
           " || Price: " +
@@ -66,7 +66,7 @@ function updateProduct(input, res) {
         stock_quantity: res[input.id_selection - 1].stock_quantity - input.quantity_selection
       },
       {
-        item_id: input.id_selection
+        id: input.id_selection
       }
     ],
     function (err, res) {
