@@ -22,7 +22,7 @@ function itemSelection() {
       for (var i = 0; i < res.length; i++) {
         console.log(
           "ID: " +
-          res[i].id +
+          res[i].item_id +
           " || Item: " +
           res[i].product_name +
           " || Price: " +
@@ -66,7 +66,7 @@ function updateProduct(input, res) {
         stock_quantity: res[input.id_selection - 1].stock_quantity - input.quantity_selection
       },
       {
-        id: input.id_selection
+       item_id: input.id_selection
       }
     ],
     function (err, res) {
