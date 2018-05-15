@@ -21,14 +21,14 @@ function itemSelection() {
       if (err) throw err;
       for (var i = 0; i < res.length; i++) {
         console.log(
-          "ID: " +
+          "\x1b[41mID: " +
           res[i].item_id +
           " || Item: " +
           res[i].product_name +
           " || Price: " +
           res[i].price +
           " || Stock: " +
-          res[i].stock_quantity
+          res[i].stock_quantity + "\x1b[0m"
         );
       }
       console.log("\n=====================================================================");
@@ -47,11 +47,11 @@ function itemSelection() {
         ])
         .then(function (input) {
           if (res[input.id_selection - 1].stock_quantity === 0) {
-            console.log("\nOut of Stock\n");
+            console.log("\n\x1b[5mOut of Stock\x1b[0m\n");
           } else if (res[input.id_selection - 1].stock_quantity < input.quantity_selection) {
-            console.log("\nOnly " + res[input.id_selection - 1].stock_quantity + " in Stock\n");
+            console.log("\n\x1b[5mOnly " + res[input.id_selection - 1].stock_quantity + " in Stock\x1b[0m\n");
           } else {
-            console.log("\nIn Stock");
+            console.log("\n\x1b[5mIn Stock\x1b[0m\n");
             updateProduct(input, res);
           }
         });
